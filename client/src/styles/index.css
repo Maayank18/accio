@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-navy: #152e22;
+    --color-forest: #152e22;
+    --color-blue: #2d6a4f;
+    --color-sage: #d8e3c3;
+    --color-sky-glow: rgba(216, 227, 195, 0.5);
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #fbfcf9;
+    overflow-x: hidden;
+    color: #212a1c;
+  }
+
+  /* Accessibility focus styles */
+  :focus-visible {
+    outline: 2px solid #2d6a4f;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: #d8e3c3;
+    color: #152e22;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom font styling */
+.font-editorial {
+  font-family: 'Caveat', cursive, Georgia, serif;
+}
+
+.font-brand {
+  font-family: 'Comfortaa', 'Quicksand', cursive, sans-serif;
+}
+
+/* Atmospheric glow classes with soothing sage tones */
+.radial-glow-hero {
+  background: radial-gradient(circle at center, rgba(216, 227, 195, 0.6) 0%, rgba(238, 243, 229, 0.3) 50%, transparent 75%);
+}
+
+.radial-glow-topleft {
+  background: radial-gradient(circle at top left, rgba(216, 227, 195, 0.7) 0%, rgba(244, 247, 238, 0.4) 40%, transparent 70%);
+}
+
+.radial-glow-bottomright {
+  background: radial-gradient(circle at bottom right, rgba(226, 235, 210, 0.55) 0%, rgba(247, 249, 243, 0.25) 50%, transparent 75%);
+}
+
+/* Hide scrollbar for clean pill navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==========================================================================
+   Hero Visual "Alive" Animations: Voice Waves, Wire Energy & Sparkles
+   ========================================================================== */
+
+@keyframes voiceWaveExpand {
+  0% {
+    r: 145px;
+    opacity: 0.75;
+    stroke-width: 2.5px;
+  }
+  60% {
+    opacity: 0.35;
+  }
+  100% {
+    r: 255px;
+    opacity: 0;
+    stroke-width: 0.75px;
+  }
+}
+
+.anim-wave-1 {
+  animation: voiceWaveExpand 3.6s cubic-bezier(0.1, 0.5, 0.4, 1) infinite;
+}
+
+.anim-wave-2 {
+  animation: voiceWaveExpand 3.6s cubic-bezier(0.1, 0.5, 0.4, 1) infinite;
+  animation-delay: 1.2s;
+}
+
+.anim-wave-3 {
+  animation: voiceWaveExpand 3.6s cubic-bezier(0.1, 0.5, 0.4, 1) infinite;
+  animation-delay: 2.4s;
+}
+
+@keyframes wireEnergyFlow {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.anim-wire-energy {
+  stroke-dasharray: 24 140;
+  animation: wireEnergyFlow 2.8s linear infinite;
+}
+
+.anim-wire-energy-fast {
+  stroke-dasharray: 18 110;
+  animation: wireEnergyFlow 2.1s linear infinite;
+}
+
+.anim-wire-energy-slow {
+  stroke-dasharray: 28 160;
+  animation: wireEnergyFlow 3.5s linear infinite;
+}
+
+@keyframes liveRubyBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 7px rgba(239, 68, 68, 0.95));
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+    filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.3));
+  }
+}
+
+.anim-ruby-blink {
+  animation: liveRubyBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes sparkleShimmer {
+  0%, 100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) rotate(90deg);
+    opacity: 0.95;
+  }
+}
+
+.anim-sparkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sparkleShimmer 2.6s ease-in-out infinite;
+}
+
