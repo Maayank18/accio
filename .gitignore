@@ -221,4 +221,8 @@ node_modules/
 dist/
 .env
 .env.local
-.env.*.local
+.env.*.local
+
+# stt models
+vosk-model-small-en-us-0.15/
+
